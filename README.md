@@ -82,4 +82,4 @@ Example usage:
  
 
 Changed `display-6` class font size from **2.5rem** to **2.75rem**.  
-Use Bootstrap's `fs-1` class for ***2.5rem** font size. 
+Use Bootstrap's `fs-1` class for **2.5rem** font size. 
