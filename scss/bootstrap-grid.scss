@@ -4,8 +4,10 @@
 $include-column-box-sizing: true !default;
 
 @import "functions";
+@import "impulsion/settings";
 @import "variables";
 @import "variables-dark";
+@import "impulsion/maps";
 @import "maps";
 
 @import "mixins/breakpoints";
