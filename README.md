@@ -30,88 +30,16 @@
 - Additional font size utility classes.
 - Primary color `#6fc2b1` and secondary color `#f4ac63`.
 
-### Extended spacer utility classes.
-Extended Bootstrap's spacing scale beyond `5` through `15`, with additional pixel sizes.
-These values generate margin, padding, gap, and gutter classes, plus negative margins.
-The default `$spacer` is `1rem`; pixel equivalents below assume a 16px root font size.
+### Extension reference
 
-    6: $spacer * 4,
-    7: $spacer * 5,
-    8: $spacer * 6,
-    9: $spacer * 7,
-    10: $spacer * 8,
-    11: $spacer * 9,
-    12: $spacer * 10,
-    13: $spacer * 11,
-    14: $spacer * 12,
-    15: $spacer * 13,
-    10px: 10px,
-    20px: 20px,
-    30px: 30px,
-    40px: 40px,
-    50px: 50px,
-    60px: 60px,
-    70px: 70px,
-    80px: 80px,
-    90px: 90px,
-    100px: 100px,
-    125px: 125px,
-    150px: 150px
-Example usage:
+See [CUSTOMIZATIONS.md](CUSTOMIZATIONS.md) for every custom value, spacing and
+typography tables, responsive examples, container behavior, Sass import order,
+and bundle coverage.
 
-    class="mt-6" // margin-top: 4rem (64px at a 16px root font size);
-    class="mt-60px" // margin-top: 60px;
-    class="mt-n6" // margin-top: -4rem (-64px at a 16px root font size);
-    class="mt-n60px" // margin-top: -60px;
-
-### Added breakpoint for 1600px
-Use `*-xxxl-*` for >=1600px breakpoint.
-
-At this breakpoint, `.container` and the responsive container classes through
-`.container-xxxl` have a maximum width of `1520px`. `.container-xxxl` stays fluid
-below `1600px`, and `.container-fluid` stays fluid at every viewport width.
-The existing `xxl` container maximum remains `1320px` from `1400px` up to (but below) `1600px`.
-
-Example usage:
-
-    class="col-xxxl-6" // width: 50%; @media (min-width: 1600px)
-    class="mt-xxxl-60px" // margin-top: 60px; @media (min-width: 1600px)
-
-### Additional font size utility classes.
-*The last two* `fs-*` *classes were added later, which explains the inconsistency in naming.*
-
-    fs-7 // font-size: 0.875rem (14px)
-    fs-8 // font-size: 0.75rem (12px)
-    fs-sm // font-size: 0.9375rem (15px)
-    fs-md // font-size: 1.125rem (18px)
-
-
-Changed the `display-6` target font size from **2.5rem** to **2.75rem**.
-Bootstrap's `fs-1` target font size is **2.5rem**. Both use Bootstrap's responsive
-font sizing (RFS), reaching these sizes at viewports of `1200px` and wider.
-
-### Customization files
-
-- `scss/impulsion/_settings.scss`: theme colors and negative-margin defaults.
-- `scss/impulsion/_maps.scss`: spacing, breakpoints, containers, and font sizes.
-
-All four Sass entry points load settings before Bootstrap's variables, then merge
-the custom maps after variables and before Bootstrap's derived maps. Keep this
-order so negative margins, gutters, components, and responsive utilities use the
-extended values. Bootstrap's core `_variables.scss` remains unchanged from upstream.
-
-Projects that previously imported `_variables.scss` directly must now also import
-the Impulsion partials in this order:
-
-```scss
-@import "scss/functions";
-@import "scss/impulsion/settings";
-@import "scss/variables";
-@import "scss/variables-dark";
-@import "scss/impulsion/maps";
-@import "scss/maps";
-// Continue with mixins, utilities, and the components needed by the project.
-```
+The custom defaults live in [settings](scss/impulsion/_settings.scss), with
+spacing, breakpoint, container, and font-size extensions in
+[maps](scss/impulsion/_maps.scss). Bootstrap's core `_variables.scss` remains
+unchanged from upstream.
 
 ### Build and verify
 
